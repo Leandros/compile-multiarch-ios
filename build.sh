@@ -13,10 +13,6 @@ SIMULATOR=iphonesimulator8.1
 # Output Config
 OUT_FILE="libcocos2d iOS.a"
 OUT_ROOT="Build"
-OUT_DEVICE="${OUT_ROOT}/Products/${CONFIGURATION}-iphoneos"
-OUT_SIMULATOR="${OUT_ROOT}/Products/${CONFIGURATION}-iphonesimulator"
-OUT_UNIVERSAL="${OUT_ROOT}/Products/${CONFIGURATION}-universal"
-
 
 
 
@@ -36,6 +32,10 @@ OUT_UNIVERSAL="${OUT_ROOT}/Products/${CONFIGURATION}-universal"
 #                   |  /   V        ))       V   \  |
 #                   |/     `       //        '     \|
 #                   `              V                '
+# Build output.
+OUT_DEVICE="${OUT_ROOT}/Products/${CONFIGURATION}-iphoneos"
+OUT_SIMULATOR="${OUT_ROOT}/Products/${CONFIGURATION}-iphonesimulator"
+OUT_UNIVERSAL="${OUT_ROOT}/Products/${CONFIGURATION}-universal"
 
 # BUILD PROCESS
 xcodebuild -configuration $CONFIGURATION \
