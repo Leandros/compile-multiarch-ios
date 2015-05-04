@@ -43,7 +43,7 @@ xcodebuild -configuration $CONFIGURATION \
     -sdk ${DEVICE} ${ACTION} \
     -project "${PROJECT}" \
     RUN_CLANG_STATIC_ANALYZER=NO \
-    BUILD_DIR="${OUT_ROOT}" \
+    BUILD_DIR="${OUT_ROOT}/Products" \
     SYMROOT="${OUT_ROOT}/Intermediates"
 
 xcodebuild -configuration $CONFIGURATION \
@@ -51,7 +51,7 @@ xcodebuild -configuration $CONFIGURATION \
     -sdk ${SIMULATOR} ${ACTION} \
     -project "${PROJECT}" \
     RUN_CLANG_STATIC_ANALYZER=NO \
-    BUILD_DIR="${OUT_ROOT}" \
+    BUILD_DIR="${OUT_ROOT}/Products" \
     SYMROOT="${OUT_ROOT}/Intermediates"
 
 # Remove old universal binaries, from previous builds.
@@ -59,7 +59,9 @@ rm -rf "${OUT_UNIVERSAL}" &>/dev/null
 mkdir "${OUT_UNIVERSAL}" &>/dev/null
 
 # Create universal binaries.
-lipo -create -output "${OUT_UNIVERSAL}/${OUT_FILE}" "${OUT_DEVICE}/${OUT_FILE}" "${OUT_SIMULATOR}/${OUT_FILE}"
+lipo -create -output "${OUT_UNIVERSAL}/${OUT_FILE}" \
+    "${OUT_DEVICE}/${OUT_FILE}" \
+    "${OUT_SIMULATOR}/${OUT_FILE}"
 
 # Clean Up. Optional.
 # rm -rf "${OUT_ROOT}/Intermediates"
