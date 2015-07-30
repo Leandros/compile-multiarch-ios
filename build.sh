@@ -6,9 +6,9 @@ PROJECT="cocos2d_libs.xcodeproj"
 ACTION="build"
 CONFIGURATION=Release
 
-# SDK Config
-DEVICE=iphoneos8.1
-SIMULATOR=iphonesimulator8.1
+# SDK Config (list installed sdks with `xcodebuild -showsdks`)
+DEVICE=iphoneos8.4
+SIMULATOR=iphonesimulator8.4
 
 # Output Config
 OUT_FILE="libcocos2d iOS.a"
